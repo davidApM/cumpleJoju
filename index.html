@@ -101,6 +101,14 @@
             audio.play().then(() => {
                 console.log("Audio desbloqueado");
                 document.getElementById("activarSonido").style.display = "none";
+
+                // ⏰ Detener el audio después de 30 segundos (30000 ms)
+                setTimeout(() => {
+                    audio.pause();
+                    audio.currentTime = 0; // Opcional: reinicia el audio
+                    console.log("Audio detenido automáticamente");
+                }, 30000);
+
             }).catch((e) => {
                 console.log("Error al desbloquear audio:", e);
             });

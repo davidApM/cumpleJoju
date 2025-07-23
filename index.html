@@ -4,17 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>¡Feliz Cumpleaños [Nombre]!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>¡Feliz Cumpleaños, Joju! 🎉</h1>
+    <h1>¡Feliz Cumpleaños, Joju! 🎉<span class="icono-flotante">🌸</span></h1>
     <p id="escritura"></p>
 
     <div class="photos">
         <div class="img-box">
-            <img src="./Imagenes/foto1.jpg" alt="Recuerdo 1" onmouseover="celebrar()">
+            <img src="./Imagenes/img4.jpeg" alt="Recuerdo 1" onmouseover="celebrar()">
             <div class="caption">Deseo 1: Que este año te regale momentos que te hagan sonreír sin razón.</div>
         </div>
         <div class="img-box">
@@ -29,11 +34,12 @@
 
     <!---Boton para activar el audio-->
     <button onclick="iniciarSonido()" id="activarSonido">
-        🔊 Activar sonido
+        🔊 Activar sonido 💌
     </button>
 
 
     <button onclick="mostrarSorpresa()">Haz clic para tu sorpresa</button>
+
     <!-- Div oculto que aparecerá -->
     <div id="sorpresa" class="sorpresa-container">
         <img src="./Imagenes/dragon.png" alt="El guardián de nuestro amor" class="imagen-sorpresa">
@@ -81,17 +87,25 @@
             //audio.play();
         }
 
-        // Esta función hace el trabajo de aparecer el div y el mensaje. 
         function mostrarSorpresa() {
             const sorpresa = document.getElementById("sorpresa");
+            const fotos = document.querySelector(".photos");
+            const botones = document.querySelectorAll("button");
+            const parrafo = document.getElementById("escritura");
 
-            // Mostrar el div
+            // Ocultar todo menos la tarjeta
+            fotos.style.display = "none";
+            botones.forEach(btn => btn.style.display = "none");
+            parrafo.style.display = "none";
             sorpresa.style.display = "block";
 
-            // Ocultar después de 3 segundos (opcional)
+            // Mostrar todo de nuevo después de 4 segundos
             setTimeout(() => {
                 sorpresa.style.display = "none";
-            }, 4000);
+                fotos.style.display = "flex";
+                botones.forEach(btn => btn.style.display = "inline-block");
+                parrafo.style.display = "block";
+            }, 5000);
         }
 
         //Función para activar el sonido del los div de las imágenes 

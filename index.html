@@ -10,25 +10,16 @@
 
 <body>
     <h1>¡Feliz Cumpleaños, Joju! 🎉</h1>
-    <p>Hoy celebro tu vida, tu sonrisa que ilumina mis días y cada momento a tu lado. <br>
-        Tu frase: Tú muy bien. 💖</p>
+    <p id="escritura"></p>
 
     <div class="photos">
-        <img src="./Imagenes/img2.jpeg" alt="Recuerdo 2"">
-        <img src=" ./Imagenes/img3.jpeg" alt="Recuerdo 2">
+        <img src="./Imagenes/img2.jpeg" alt="Recuerdo 1 " onmouseover="celebrar()">
+        <img src="./Imagenes/img3.jpeg" alt="Recuerdo 2" onmouseover="celebrar()">
+        <img src="./Imagenes/img4.jpeg" alt="Recuerdo 3" onmouseover="celebrar()">
+
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        function celebrar() {
-            confetti({
-                particleCount: 150,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
-            alert("¡Te deseamos lo mejor! 🎂");
-        }
-    </script>
+
     <button onclick="mostrarSorpresa()">Haz clic para tu sorpresa</button>
 
     <!-- Div oculto que aparecerá -->
@@ -46,7 +37,35 @@
         <div class="detalle-corazon">❣️</div>
     </div>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script>
+        //Esta función hace como una maquina de escribir el primer parrafo. 
+        let texto = "Hoy celebro tu vida, tu sonrisa que ilumina mis días y cada momento a tu lado 💖";
+        let i = 0;
+        let velocidad = 85;
+
+        function escribir() {
+            if (i < texto.length) {
+                document.getElementById("escritura").innerHTML += texto.charAt(i);
+                i++;
+                setTimeout(escribir, velocidad);
+            }
+        }
+        escribir();
+
+        // Aquí termina el código de la maquina de escribir. 
+
+        //Esta función es la que nos lanza el confeti en las imágenes. 
+        function celebrar() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Esta función hace el trabajo de aparecer el div y el mensaje. 
         function mostrarSorpresa() {
             const sorpresa = document.getElementById("sorpresa");
 
@@ -60,5 +79,4 @@
         }
     </script>
 </body>
-
 </html>

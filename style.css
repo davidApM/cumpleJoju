@@ -6,27 +6,42 @@
     min-height: 100vh;
 }*/
 
+/* Fuentes y optimizaciones iniciales */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    --color-primario: #d6336c;
+    --color-secundario: #FF6B9E;
+    --color-fondo: #ffebf3;
+    --color-texto: #333;
+}
+
+/* Estilos base optimizados */
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #ffebf3;
+    background-color: var(--color-fondo);
     background-image: url('./Imagenes/fondo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-color: rgba(255, 235, 243, 0.7);
     text-align: center;
     padding: 20px;
     min-height: 100vh;
+    margin: 0;
+    line-height: 1.6;
+    color: var(--color-texto);
 }
-
 
 h1,
 p {
+    color: var(--color-primario);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    color: #d6336c;
 }
 
-/* Código para el h1 y el emoticon con movimiento*/
+/* Animación del icono */
 .icono-flotante {
     font-size: 28px;
     display: inline-block;
@@ -45,17 +60,14 @@ p {
     }
 }
 
-/*Fin de la modificación del h1*/
-
-
-
+/* Galería de fotos optimizada */
 .photos {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     margin: 20px auto;
-    max-width: 90%;
+    max-width: 95%;
 }
 
 .photos img {
@@ -64,15 +76,54 @@ p {
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .photos img:hover {
     transform: scale(1.03);
 }
 
-/* Botón responsivo */
+/* Estilos para los contenedores de imagen */
+.img-box {
+    position: relative;
+    display: inline-block;
+    border: 2px solid var(--color-secundario);
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0 4px 10px rgba(255, 107, 158, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+}
+
+.img-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 14px rgba(255, 107, 158, 0.3);
+}
+
+.caption {
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: var(--color-primario);
+    padding: 8px 12px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid var(--color-secundario);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.img-box:hover .caption {
+    opacity: 1;
+}
+
+/* Botón optimizado */
 button {
-    background-color: #FF6B9E;
+    background-color: var(--color-secundario);
     font-family: 'Lato', sans-serif;
     color: white;
     border: none;
@@ -92,7 +143,6 @@ button {
     max-width: 300px;
 }
 
-/* Efectos del botón se mantienen igual */
 button:hover {
     background-color: #FF4785;
     transform: scale(1.05);
@@ -121,21 +171,22 @@ button:hover::after {
     opacity: 1;
 }
 
-/*Fin de las configuraciones de los botones*/
-
-
-/* Sorpresa container responsivo */
+/* Contenedor de sorpresa optimizado */
 .sorpresa-container {
     display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     background: #fcd1de;
-    color: white;
+    color: #597a29;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
     width: 90%;
     max-width: 400px;
-    margin: 20px auto;
+    z-index: 1000;
     animation: aparecer 0.7s ease-out;
     border: 1px solid #e8d5c0;
 }
@@ -148,15 +199,16 @@ button:hover::after {
 }
 
 .titulo {
-    color: #a4d162;
+    color: #597a29;
     font-size: clamp(1.2rem, 4vw, 1.5rem);
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .mensaje-romantico {
-    color: #a4d162;
+    color: #597a29;
     font-size: clamp(0.9rem, 3vw, 1.1rem);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 15px 0;
 }
 
@@ -166,53 +218,7 @@ button:hover::after {
     animation: latido 1.9s infinite;
 }
 
-/*Esto modifica los div donde están las imágenees*/
-.photos {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-/*Configuraciones del DIV*/
-.img-box {
-    position: relative;
-    display: inline-block;
-    border: 2px solid #ff6b9e; /* borde rosa */
-    border-radius: 12px;
-    padding: 5px;
-    box-shadow: 0 4px 10px rgba(255, 107, 158, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.img-box:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 14px rgba(255, 107, 158, 0.3);
-}
-
-/*Este es el div y sus configuraciones*/
-.caption {
-    font-family: 'Lato', sans-serif;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo claro */
-    color: #d6336c; /* Mismo color del h1 */
-    padding: 8px 12px;
-    font-size: 16px; /* Tamaño un poco mayor */
-    font-weight: 500;
-    border-radius: 8px;
-    border: 1px solid #ff6b9e; /* borde rosa */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.img-box:hover .caption {
-    opacity: 1;
-    /* Se muestra al pasar el mouse */
-}
-
-
-/* Animaciones se mantienen igual */
+/* Animaciones optimizadas */
 @keyframes latido {
     0% {
         transform: scale(1);
@@ -238,11 +244,12 @@ button:hover::after {
 @keyframes aparecer {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translate(-50%, -60%);
     }
+
     to {
         opacity: 1;
-        transform: scale(1);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -256,14 +263,39 @@ button:hover::after {
     }
 }
 
-/* Media queries para ajustes específicos */
-@media (max-width: 480px) {
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: top center;
+    }
+
     .photos {
-        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .photos img {
+        max-width: 150px;
     }
 
     .sorpresa-container {
         padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+        background-size: auto 100%;
+    }
+
+    .img-box {
+        max-width: 140px;
+    }
+
+    .caption {
+        font-size: 14px;
+        padding: 5px 8px;
     }
 
     .mensaje-romantico {

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños [Nombre]!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>¡Feliz Cumpleaños, Joju! 🎉</h1>
+    <p>Hoy celebro tu vida, tu sonrisa que ilumina mis días y cada momento a tu lado. Tú muy bien. 💖</p>
+
+    <div class="photos">
+        <img src="./Imagenes/img2.jpeg" alt="Recuerdo 2"">
+        <img src="./Imagenes/img3.jpeg" alt="Recuerdo 2">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function celebrar() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            alert("¡Te deseamos lo mejor! 🎂");
+        }
+    </script>
+    <button onclick="mostrarSorpresa()">Haz clic para tu sorpresa</button>
+
+    <!-- Div oculto que aparecerá -->
+    <div id="sorpresa" class="sorpresa-container">
+        <img src="./Imagenes/dragon.png" alt="El guardián de nuestro amor" class="imagen-sorpresa">
+        <p class="titulo">Feliz cumpleaños, mi chiquilla</p>
+        <p class="mensaje-romantico">
+            "¿Qué tienen tus ojos, tus labios, tu piel<br>
+        que nunca se acaba esta magia de amar?<br>
+        Somos la copa y el vino,<br>
+        juntos desde aquel día... y por siempre jamás."
+        </p>
+        <div class="detalle-corazon">❣️</div>
+    </div>
+
+    <script>
+        function mostrarSorpresa() {
+            const sorpresa = document.getElementById("sorpresa");
+
+            // Mostrar el div
+            sorpresa.style.display = "block";
+
+            // Ocultar después de 3 segundos (opcional)
+            setTimeout(() => {
+                sorpresa.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

@@ -110,7 +110,7 @@
                 fotos.style.display = "flex";
                 botones.forEach(btn => btn.style.display = "inline-block");
                 parrafo.style.display = "block";
-            }, 5000);
+            }, 7000);
         }
 
         //Función para activar el sonido del los div de las imágenes 
@@ -126,7 +126,7 @@
                     audio.pause();
                     audio.currentTime = 0; // Opcional: reinicia el audio
                     console.log("Audio detenido automáticamente");
-                }, 30000);
+                }, 60000);
 
             }).catch((e) => {
                 console.log("Error al desbloquear audio:", e);
